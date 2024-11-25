@@ -85,10 +85,15 @@ const App = () => {
       <Toaster position="top-right" />
 
       {/* Hata mesajı */}
-      {error && <ErrorMessage message={error} />}
+      {error && (
+        <ErrorMessage
+          message={error}
+          onRetry={() => handleSearch(query)} // Opsiyonel: "Tekrar Dene" butonu eklenebilir
+        />
+      )}
 
       {/* Görsel galerisi */}
-      <ImageGallery images={images} onImageClick={handleOpenModal} />
+      {!error && <ImageGallery images={images} onImageClick={handleOpenModal} />}
 
       {/* Yükleme göstergesi */}
       {loading && <Loader />}
@@ -100,7 +105,7 @@ const App = () => {
 
       {/* Modal */}
       {showModal && (
-        <ImageModal image={selectedImage} onClose={handleCloseModal} />
+        <ImageModal image={selectedImage} isOpen={showModal} onClose={handleCloseModal} />
       )}
     </div>
   );
