@@ -1,3 +1,6 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import ImageCard from '../ImageCard/ImageCard';
 import styles from './ImageGallery.module.css';
 
 const ImageGallery = ({ images, onImageClick }) => {
@@ -5,16 +8,16 @@ const ImageGallery = ({ images, onImageClick }) => {
     <ul className={styles.gallery}>
       {images.map((image) => (
         <li key={image.id} className={styles.galleryItem}>
-          <img
-            src={image.urls.small}
-            alt={image.alt_description}
-            className={styles.image}
-            onClick={() => onImageClick(image)}
-          />
+          <ImageCard image={image} onClick={onImageClick} />
         </li>
       ))}
     </ul>
   );
+};
+
+ImageGallery.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onImageClick: PropTypes.func.isRequired,
 };
 
 export default ImageGallery;

@@ -1,0 +1,23 @@
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+
+  /* Kartların eşit boyutlu olması için */
+  width: 200px; /* Sabit genişlik */
+  height: 200px; /* Sabit yükseklik */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+  width: 100%; /* Kart genişliğine göre ayarlanır */
+  height: 100%; /* Kart yüksekliğine göre ayarlanır */
+  object-fit: cover; /* Resmi kırpmadan ve bozmadan sığdırır */
+  display: block;
+}

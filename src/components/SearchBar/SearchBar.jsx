@@ -1,5 +1,4 @@
 import styles from './SearchBar.module.css';
-import styles from './SearchBar.module.css';
 
 const SearchBar = ({ onSubmit }) => {
   const handleSubmit = (e) => {
